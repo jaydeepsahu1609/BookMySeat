@@ -62,9 +62,9 @@ BookMySeat/
 │   ├── auth-service/
 │   ├── booking-service/
 │   ├── config-server/
-│   ├── management-service/
 │   ├── payment-service/
-│   └── query-service/
+│   ├── query-service/
+│   └── show-service/
 ├── docs/
 ├── frontend/
 ├── infra/

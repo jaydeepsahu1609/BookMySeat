@@ -39,7 +39,7 @@
 - Ensures **idempotency** so that retries do not result in duplicate charges.
 - Communicates status updates back to the Booking Service.
 
-### 5. Management Service
+### 5. Show Service
 - A back-office tool for Admins to create and update events, shows, and venue metadata.
 - Updates the primary **PostgreSQL** database, which eventually syncs with the Query Service cache.
 
