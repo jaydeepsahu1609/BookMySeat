@@ -25,6 +25,14 @@ It also strengthens:
 
 ## Tech Stack
 
+
+### Infrastructure
+- Docker (PostgreSQL, Redis, Kafka)
+
+### AI Assistants
+- **Google Gemini** Agent (IntelliJ Idea Plugin)
+- ChatGPT
+
 ### Frontend
 - ReactJS
 
@@ -42,14 +50,6 @@ It also strengthens:
     - Booking events
     - Payment processing
     - Notifications
-
-### Infrastructure
-- Docker (PostgreSQL, Redis, Kafka)
-
-### AI Assistants
-
-- **Google Gemini** Agent (IntelliJ Idea Plugin)
-- ChatGPT
 
 ---
 
@@ -83,6 +83,34 @@ Available in the [`/docs`](./docs) directory
 
 ## Getting Started
 
-to be added
+### Database setup
+
+To run PostgreSQL via Docker, execute the following from the root directory for the **first-time setup**:
+
+```bash
+cd infra
+docker-compose -f postgres-docker-compose.yaml up -d
+```
+
+> **Note:** You only need to run `docker-compose up -d` once. Once the container is created, you can simply start or stop it:
+> ```bash
+> docker start bms-postgres
+> docker stop bms-postgres
+> ```
+
+### Cache Setup
+
+To run Redis via Docker, execute the following from the root directory for the **first-time setup**:
+
+```bash
+cd infra
+docker-compose -f redis-docker-compose.yaml up -d
+```
+
+> **Note:** Similar to PostgreSQL, you only need to run `docker-compose up -d` once. For subsequent runs, use:
+> ```bash
+> docker start redis-node-1 redis-node-2 redis-node-3
+> docker stop redis-node-1 redis-node-2 redis-node-3
+> ```
 
 ---

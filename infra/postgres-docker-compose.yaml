@@ -1,0 +1,30 @@
+# generated using Google Gemini
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: bms-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: bmsuser
+      POSTGRES_PASSWORD: bXlwYXNzd29yZA
+      POSTGRES_DB: bmsdb
+    volumes:
+      # Persist database data
+      - bms-pgdata:/var/lib/postgresql/data
+      # Mount custom configuration (optional)
+      # Ensure these files/folders exist in the same directory as this docker-compose file
+      # - ./postgresql.conf:/etc/postgresql/postgresql.conf
+      # - ./init-scripts:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bmsuser -d bmsdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  bms-pgdata:
+
+# FIXME : secrets/passwords must not be checked-in to version control
