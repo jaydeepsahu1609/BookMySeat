@@ -119,4 +119,19 @@ docker-compose -f redis-docker-compose.yaml up -d
 > docker stop redis-node-1 redis-node-2 redis-node-3
 > ```
 
+### Messaging Setup
+
+To run Kafka and ZooKeeper via Docker, execute the following from the root directory for the **first-time setup**:
+
+```bash
+cd infra
+docker-compose -f kafka-docker-compose.yaml up -d
+```
+
+> **Note:** Similar to PostgreSQL and Redis, you only need to run `docker-compose up -d` once. For subsequent runs, use:
+> ```bash
+> docker start bms-zookeeper bms-kafka
+> docker stop bms-zookeeper bms-kafka
+> ```
+
 ---
