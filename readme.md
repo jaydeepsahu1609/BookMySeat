@@ -89,49 +89,23 @@ Available in the [`/docs`](./docs) directory
 
 ## Getting Started
 
-### Database setup
+### Infrastructure Setup
 
-To run PostgreSQL via Docker, execute the following from the root directory for the **first-time setup**:
+A helper script is provided to easily manage the entire infrastructure (PostgreSQL, Redis, Kafka) at once.
 
-```bash
-cd infra
-docker-compose -f postgres-docker-compose.yaml up -d
-```
-
-> **Note:** You only need to run `docker-compose up -d` once. Once the container is created, you can simply start or stop it:
-> ```bash
-> docker start bms-postgres
-> docker stop bms-postgres
-> ```
-
-### Cache Setup
-
-To run Redis via Docker, execute the following from the root directory for the **first-time setup**:
+To manage the infrastructure, execute the following script from the root directory:
 
 ```bash
-cd infra
-docker-compose -f redis-docker-compose.yaml up -d
+# To set up and start the infrastructure for the first time
+./infra-setup-docker.sh setup
+
+# To start the infrastructure containers subsequently
+./infra-setup-docker.sh start
+
+# To stop the infrastructure containers
+./infra-setup-docker.sh stop
 ```
 
-> **Note:** Similar to PostgreSQL, you only need to run `docker-compose up -d` once. For subsequent runs, use:
-> ```bash
-> docker start redis-node-1 redis-node-2 redis-node-3
-> docker stop redis-node-1 redis-node-2 redis-node-3
-> ```
-
-### Messaging Setup
-
-To run Kafka and ZooKeeper via Docker, execute the following from the root directory for the **first-time setup**:
-
-```bash
-cd infra
-docker-compose -f kafka-docker-compose.yaml up -d
-```
-
-> **Note:** Similar to PostgreSQL and Redis, you only need to run `docker-compose up -d` once. For subsequent runs, use:
-> ```bash
-> docker start bms-zookeeper bms-kafka
-> docker stop bms-zookeeper bms-kafka
-> ```
+<img src="docs/img/docker-desktop.png" alt="Docker Desktop Screenshot" height="100%" width="100%" />
 
 ---
