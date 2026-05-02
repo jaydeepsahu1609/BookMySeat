@@ -5,7 +5,7 @@ This project focuses on solving real-world backend challenges such as concurrenc
 
 ---
 
-## 🎯 Objective
+## Objective
 
 The goal is to go beyond a simple clone and build a **production-grade system** while learning:
 
@@ -23,32 +23,53 @@ It also strengthens:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-### 🎨 Frontend
+### Frontend
 - ReactJS
 
-### ⚙️ Backend
+### Backend
 - **Language:** Java 17
 - **Framework:** Spring Boot (Microservices)
 - **Build Tool:** Maven
 
-### 🗄️ Data & Storage
+### Data & Storage
 - **Database:** PostgreSQL
 - **Cache:** Redis (locking + caching)
 
-### 🔄 Messaging
+### Messaging
 - **Apache Kafka** for:
     - Booking events
     - Payment processing
     - Notifications
 
-### 🐳 Infrastructure
+### Infrastructure
 - Docker (PostgreSQL, Redis, Kafka)
+
+### AI Assistants
+
+- **Google Gemini** Agent (IntelliJ Idea Plugin)
+- ChatGPT
 
 ---
 
 ## 📂 Project Structure & Design
+
+```
+BookMySeat/
+├── backend/
+│   ├── api-gateway/
+│   ├── auth-service/
+│   ├── booking-service/
+│   ├── config-server/
+│   ├── management-service/
+│   ├── payment-service/
+│   └── query-service/
+├── docs/
+├── frontend/
+├── infra/
+└── readme.md
+```
 
 Detailed documentation including:
 - HLD (High-Level Design)
@@ -56,10 +77,12 @@ Detailed documentation including:
 - Database Schema
 - API Contracts
 
-📁 Available in the [`/docs`](./docs) directory
+Available in the [`/docs`](./docs) directory
 
 ---
 
-## 🏁 Getting Started
+## Getting Started
 
 to be added
+
+---
