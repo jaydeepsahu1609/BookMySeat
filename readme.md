@@ -26,7 +26,7 @@ It also strengthens:
 
 ## Architecture
 
-<img src="docs/3-architecture-diagram.png" alt="High-Level Architecture Diagram" height="100%" width="100%" />
+<img src="docs/3-architecture-diagram.png" alt="High-Level Architecture Diagram" height="110%" width="110%" />
 
 ---
 
