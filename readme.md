@@ -72,8 +72,23 @@ BookMySeat/
 │   ├── query-service/
 │   └── show-service/
 ├── docs/
+│   ├── img/
+│   ├── lld/
+│   ├── 1-requirement-gathering.md
+│   ├── 2-actors.md
+│   ├── 3-architecture-diagram.excalidraw
+│   ├── 3-architecture-diagram.png
+│   └── api-design.md
 ├── frontend/
+│   └── readme.md
 ├── infra/
+│   ├── .env.template
+│   ├── kafka-docker-compose.yaml
+│   ├── postgres-docker-compose.yaml
+│   ├── redis-docker-compose.yaml
+│   └── schema.sql
+├── .gitignore
+├── infra-setup-docker.sh
 └── readme.md
 ```
 
@@ -104,6 +119,9 @@ To manage the infrastructure, execute the following script from the root directo
 
 # To stop the infrastructure containers
 ./infra-setup-docker.sh stop
+
+# To remove all containers and volumes
+./infra-setup-docker.sh cleanup
 ```
 
 <img src="docs/img/docker-desktop.png" alt="Docker Desktop Screenshot" height="100%" width="100%" />
