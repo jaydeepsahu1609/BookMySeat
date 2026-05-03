@@ -1,0 +1,60 @@
+package com.bms.booking_service.entity;
+
+import com.bms.booking_service.constants.EntityConstants;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = EntityConstants.TABLE_BOOKING)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Booking {
+    @Id
+    private String id;
+
+    @Column(name = EntityConstants.COL_SHOW_ID, nullable = false)
+    private String showId;
+
+    @Column(nullable = false)
+    private BigDecimal total;
+
+    @Column(nullable = false)
+    private String state;
+
+    @Column(nullable = false)
+    private LocalDateTime time;
+
+    @Column(name = EntityConstants.COL_USER_ID, nullable = false)
+    private String userId;
+
+    @Column(name = EntityConstants.COL_CREATED_AT, nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = EntityConstants.COL_UPDATED_AT, nullable = false)
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        LocalDateTime now = LocalDateTime.now();
+        this.createdAt = now;
+        this.updatedAt = now;
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+}
