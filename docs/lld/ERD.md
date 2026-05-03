@@ -32,7 +32,7 @@ erDiagram
 
     AUDITORIUM {
         string id PK
-        int capacity
+        int catalog_id
         string venue_id FK
     }
 

@@ -1,7 +1,10 @@
 package com.bms.show_service.entity;
 
 import com.bms.show_service.constants.EntityConstants;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -19,8 +22,11 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Auditorium {
     @Id
-    private String id;
-    private Integer capacity;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    
+    @Column(name = "catalog_id", nullable = false)
+    private Integer catalogId;
     
     @ManyToOne
     @JoinColumn(name = EntityConstants.VENUE_ID, nullable = false)

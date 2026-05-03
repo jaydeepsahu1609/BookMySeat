@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class AuditoriumDto {
     private Integer id;
-    private Integer capacity;
+    private Integer catalogId;
     private VenueDto venue;
 }
