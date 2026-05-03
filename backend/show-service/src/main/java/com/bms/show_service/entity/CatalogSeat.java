@@ -1,6 +1,7 @@
 package com.bms.show_service.entity;
 
 import com.bms.show_service.constants.EntityConstants;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,21 +15,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = EntityConstants.AUDITORIUM)
+@Table(name = EntityConstants.CATALOG_SEAT)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Auditorium {
+public class CatalogSeat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     @ManyToOne
-    @JoinColumn(name = "catalog_id", nullable = false)
+    @JoinColumn(name = EntityConstants.CATALOG_ID, nullable = false)
     private Catalog catalog;
-    
-    @ManyToOne
-    @JoinColumn(name = EntityConstants.VENUE_ID, nullable = false)
-    private Venue venue;
+
+    @Column(name = "row_label", nullable = false, length = 10)
+    private String rowLabel;
+
+    @Column(name = "seat_number", nullable = false)
+    private Integer seatNumber;
+
+    @Column(name = "seat_type", nullable = false)
+    private Integer seatType;
 }

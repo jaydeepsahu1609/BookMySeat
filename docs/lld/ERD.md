@@ -5,81 +5,97 @@ Generated using Google Gemini Agent Using [DB Schema Diagram](./db-schema-diagra
 ```mermaid
 erDiagram
     EVENT {
-        string id PK
+        int id PK
         string title
         string description
-        int duration
-        string category
-        string age_rating
+        int duration_minutes
+        int category
+        int age_rating
         date release_date
     }
 
     SHOW {
-        string id PK
+        int id PK
         datetime start_time
         datetime end_time
-        string event_id FK
-        string auditorium_id FK
+        int event_id FK
+        int auditorium_id FK
     }
 
     VENUE {
-        string id PK
+        int id PK
         string title
-        string admin_id
+        int admin_id
         string city
         string address
     }
 
     AUDITORIUM {
-        string id PK
-        int catalog_id
-        string venue_id FK
+        int id PK
+        int catalog_id FK
+        int venue_id FK
+    }
+    
+    CATALOG {
+        int id PK
+        string name
+        int total_rows
+        int total_columns
+    }
+    
+    CATALOG_SEAT {
+        int id PK
+        int catalog_id FK
+        string row_label
+        int seat_number
+        int seat_type
     }
 
     USER {
-        string id PK
-        string role
+        int id PK
+        int role
     }
 
     USER_DETAILS {
-        string user_id PK
+        int user_id PK
         string first_name
         string last_name
         int age
-        string gender
+        int gender
     }
 
     SHOW_SEAT {
-        string id PK
-        string show_id FK
+        int id PK
+        int show_id FK
+        int catalog_seat_id FK
         float price
         string state
-        string locked_by FK
+        int locked_by FK
         datetime locked_at
+        datetime lock_expires_at
     }
 
     BOOKING {
-        string id PK
-        string show_id FK
-        float total
+        int id PK
+        int show_id FK
         string state
-        datetime time
-        string user_id FK
+        int user_id FK
         datetime created_at
         datetime updated_at
+        datetime expires_at
     }
 
-    SHOW_BOOKING {
-        string id PK
-        string booking_id FK
-        string show_seat_id FK
+    BOOKING_SEAT {
+        int id PK
+        int booking_id FK
+        int show_seat_id FK
     }
 
-    TRANSACTIONS {
-        string id PK
+    TRANSACTION {
+        int id PK
         string state
         float amount
-        string booking_id FK
+        int booking_id FK
         datetime created_at
         datetime updated_at
     }
@@ -91,8 +107,11 @@ erDiagram
     USER ||--o{ BOOKING : "makes"
     SHOW ||--o{ BOOKING : "receives"
     SHOW ||--o{ SHOW_SEAT : "has"
-    BOOKING ||--o{ SHOW_BOOKING : "reserves"
-    SHOW_SEAT ||--o{ SHOW_BOOKING : "is reserved in"
-    BOOKING ||--o{ TRANSACTIONS : "paid via"
+    BOOKING ||--o{ BOOKING_SEAT : "reserves"
+    SHOW_SEAT ||--o{ BOOKING_SEAT : "is reserved in"
+    BOOKING ||--o{ TRANSACTION : "paid via"
     USER ||--o{ SHOW_SEAT : "locks"
+    CATALOG ||--o{ CATALOG_SEAT : "contains"
+    CATALOG ||--o{ AUDITORIUM : "used in"
+    CATALOG_SEAT ||--o{ SHOW_SEAT : "mapped to"
 ```

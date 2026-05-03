@@ -15,8 +15,10 @@ import java.time.LocalDateTime;
 public class ShowSeatDto {
     private Integer id;
     private Integer showId;
+    private Integer catalogSeatId;
     private BigDecimal price;
     private String state;
     private Integer lockedBy;
     private LocalDateTime lockedAt;
+    private LocalDateTime lockExpiresAt;
 }

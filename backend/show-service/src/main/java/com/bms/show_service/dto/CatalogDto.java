@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuditoriumDto {
+public class CatalogDto {
     private Integer id;
-    private CatalogDto catalog;
-    private VenueDto venue;
+    private String name;
+    private Integer totalRows;
+    private Integer totalColumns;
 }

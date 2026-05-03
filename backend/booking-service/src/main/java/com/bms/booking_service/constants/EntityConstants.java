@@ -15,7 +15,7 @@ public final class EntityConstants {
     // ==========================================
     public static final String TABLE_SHOW_SEAT = "show_seat";
     public static final String TABLE_BOOKING = "booking";
-    public static final String TABLE_SHOW_BOOKING = "show_booking";
+    public static final String TABLE_BOOKING_SEAT = "booking_seat";
 
     // ==========================================
     // Column Names
@@ -31,7 +31,7 @@ public final class EntityConstants {
     public static final String COL_CREATED_AT = "created_at";
     public static final String COL_UPDATED_AT = "updated_at";
 
-    // ShowBooking Columns
+    // BookingSeat Columns
     public static final String COL_BOOKING_ID = "booking_id";
     public static final String COL_SHOW_SEAT_ID = "show_seat_id";
 }

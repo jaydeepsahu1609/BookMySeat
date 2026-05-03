@@ -14,7 +14,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -32,13 +31,7 @@ public class Booking {
     private Integer showId;
 
     @Column(nullable = false)
-    private BigDecimal total;
-
-    @Column(nullable = false)
     private String state;
-
-    @Column(nullable = false)
-    private LocalDateTime time;
 
     @Column(name = EntityConstants.COL_USER_ID, nullable = false)
     private Integer userId;
@@ -48,6 +41,9 @@ public class Booking {
 
     @Column(name = EntityConstants.COL_UPDATED_AT, nullable = false)
     private LocalDateTime updatedAt;
+
+    @Column(name = "expires_at")
+    private LocalDateTime expiresAt;
 
     @PrePersist
     protected void onCreate() {

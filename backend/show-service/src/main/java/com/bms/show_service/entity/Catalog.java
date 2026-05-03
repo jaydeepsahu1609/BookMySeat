@@ -1,12 +1,11 @@
 package com.bms.show_service.entity;
 
 import com.bms.show_service.constants.EntityConstants;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,21 +13,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = EntityConstants.AUDITORIUM)
+@Table(name = EntityConstants.CATALOG)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Auditorium {
+public class Catalog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
-    @ManyToOne
-    @JoinColumn(name = "catalog_id", nullable = false)
-    private Catalog catalog;
-    
-    @ManyToOne
-    @JoinColumn(name = EntityConstants.VENUE_ID, nullable = false)
-    private Venue venue;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(name = "total_rows", nullable = false)
+    private Integer totalRows;
+
+    @Column(name = "total_columns", nullable = false)
+    private Integer totalColumns;
 }

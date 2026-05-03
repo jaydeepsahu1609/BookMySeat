@@ -14,12 +14,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = EntityConstants.TABLE_SHOW_BOOKING)
+@Table(name = EntityConstants.TABLE_BOOKING_SEAT)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ShowBooking {
+public class BookingSeat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

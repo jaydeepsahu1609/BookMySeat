@@ -1,4 +1,4 @@
-package com.bms.show_service.dto;
+package com.bms.booking_service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuditoriumDto {
+public class BookingSeatDto {
     private Integer id;
-    private CatalogDto catalog;
-    private VenueDto venue;
+    private BookingDto booking;
+    private ShowSeatDto showSeat;
 }

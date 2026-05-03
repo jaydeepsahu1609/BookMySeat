@@ -29,6 +29,9 @@ public class ShowSeat {
     @Column(name = EntityConstants.COL_SHOW_ID, nullable = false)
     private Integer showId;
 
+    @Column(name = "catalog_seat_id", nullable = false)
+    private Integer catalogSeatId;
+
     @Column(nullable = false, precision = 5, scale = 2)
     private BigDecimal price;
 
@@ -40,4 +43,7 @@ public class ShowSeat {
 
     @Column(name = EntityConstants.COL_LOCKED_AT)
     private LocalDateTime lockedAt;
+
+    @Column(name = "lock_expires_at")
+    private LocalDateTime lockExpiresAt;
 }
