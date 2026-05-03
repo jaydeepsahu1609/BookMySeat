@@ -3,6 +3,8 @@ package com.bms.booking_service.entity;
 import com.bms.booking_service.constants.EntityConstants;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -23,10 +25,11 @@ import java.time.LocalDateTime;
 @Builder
 public class Booking {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = EntityConstants.COL_SHOW_ID, nullable = false)
-    private String showId;
+    private Integer showId;
 
     @Column(nullable = false)
     private BigDecimal total;
@@ -38,7 +41,7 @@ public class Booking {
     private LocalDateTime time;
 
     @Column(name = EntityConstants.COL_USER_ID, nullable = false)
-    private String userId;
+    private Integer userId;
 
     @Column(name = EntityConstants.COL_CREATED_AT, nullable = false, updatable = false)
     private LocalDateTime createdAt;

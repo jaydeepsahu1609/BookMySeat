@@ -2,6 +2,8 @@ package com.bms.booking_service.entity;
 
 import com.bms.booking_service.constants.EntityConstants;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -19,7 +21,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ShowBooking {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = EntityConstants.COL_BOOKING_ID, nullable = false)

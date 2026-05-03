@@ -13,10 +13,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class TransactionDto {
-    private String id;
+    private Integer id;
     private String state;
     private BigDecimal amount;
-    private String bookingId;
+    private Integer bookingId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

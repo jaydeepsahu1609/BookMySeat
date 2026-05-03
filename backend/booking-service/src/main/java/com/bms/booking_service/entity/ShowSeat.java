@@ -3,6 +3,8 @@ package com.bms.booking_service.entity;
 import com.bms.booking_service.constants.EntityConstants;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -21,22 +23,23 @@ import java.time.LocalDateTime;
 @Builder
 public class ShowSeat {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(name = EntityConstants.COL_AUDITORIUM_ID, nullable = false)
-    private String auditoriumId;
+    private Integer auditoriumId;
 
     @Column(name = EntityConstants.COL_SHOW_ID, nullable = false)
-    private String showId;
+    private Integer showId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 5, scale = 2)
     private BigDecimal price;
 
     @Column(nullable = false)
     private String state;
 
     @Column(name = EntityConstants.COL_LOCKED_BY)
-    private String lockedBy;
+    private Integer lockedBy;
 
     @Column(name = EntityConstants.COL_LOCKED_AT)
     private LocalDateTime lockedAt;

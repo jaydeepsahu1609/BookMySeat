@@ -27,6 +27,7 @@ erDiagram
         string title
         string admin_id
         string city
+        string address
     }
 
     AUDITORIUM {

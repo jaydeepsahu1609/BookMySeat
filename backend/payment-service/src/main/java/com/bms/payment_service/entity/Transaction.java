@@ -3,6 +3,8 @@ package com.bms.payment_service.entity;
 import com.bms.payment_service.constants.EntityConstants;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -16,14 +18,15 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = EntityConstants.TABLE_TRANSACTIONS)
+@Table(name = EntityConstants.TABLE_TRANSACTION)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Transaction {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(nullable = false)
     private String state;
@@ -32,7 +35,7 @@ public class Transaction {
     private BigDecimal amount;
 
     @Column(name = EntityConstants.COL_BOOKING_ID, nullable = false)
-    private String bookingId;
+    private Integer bookingId;
 
     @Column(name = EntityConstants.COL_CREATED_AT, nullable = false, updatable = false)
     private LocalDateTime createdAt;

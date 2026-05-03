@@ -13,7 +13,7 @@ public final class EntityConstants {
     // ==========================================
     // Table Names
     // ==========================================
-    public static final String TABLE_TRANSACTIONS = "\"transactions\"";
+    public static final String TABLE_TRANSACTION = "transaction";
 
     // ==========================================
     // Column Names

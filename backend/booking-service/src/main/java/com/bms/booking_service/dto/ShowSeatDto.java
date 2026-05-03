@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class ShowSeatDto {
-    private String id;
-    private String auditoriumId;
-    private String showId;
+    private Integer id;
+    private Integer auditoriumId;
+    private Integer showId;
     private BigDecimal price;
     private String state;
-    private String lockedBy;
+    private Integer lockedBy;
     private LocalDateTime lockedAt;
 }

@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class ShowDto {
-    private String id;
+    private Integer id;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private EventDto event;

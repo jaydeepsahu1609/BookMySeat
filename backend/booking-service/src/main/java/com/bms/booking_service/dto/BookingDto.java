@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class BookingDto {
-    private String id;
-    private String showId;
+    private Integer id;
+    private Integer showId;
     private BigDecimal total;
     private String state;
     private LocalDateTime time;
-    private String userId;
+    private Integer userId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

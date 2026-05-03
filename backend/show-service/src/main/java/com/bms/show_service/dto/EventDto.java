@@ -12,11 +12,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class EventDto {
-    private String id;
+    private Integer id;
     private String title;
     private String description;
-    private Integer duration;
-    private String category;
-    private String ageRating;
+    private Integer durationMinutes;
+    private Integer category;
+    private Integer ageRating;
     private LocalDate releaseDate;
 }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class ShowBookingDto {
-    private String id;
+    private Integer id;
     private BookingDto booking;
     private ShowSeatDto showSeat;
 }
