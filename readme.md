@@ -15,6 +15,7 @@ The goal is to go beyond a simple clone and build a **production-grade system** 
 - Idempotent APIs (Safe Payments & Bookings)
 - Event-Driven Architecture (Kafka)
 - High Availability & Fault Tolerance
+- CQRS Read Model
 
 It also strengthens:
 - Spring Boot Microservices
@@ -36,7 +37,7 @@ It also strengthens:
 - Docker (PostgreSQL, Redis, Kafka)
 
 ### AI Assistants
-- **Google Gemini** Agent (IntelliJ Idea Plugin)
+- **Google Gemini** Agent (IntelliJ Idea Plugin) / `Gemini Code Assist`
 - ChatGPT
 
 ### Frontend

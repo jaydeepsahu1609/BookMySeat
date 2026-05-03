@@ -50,3 +50,33 @@
 ### 7. Message Broker (Kafka)
 - Acts as the backbone for asynchronous communication between services.
 - Handles booking events, payment success/failure notifications, and background tasks.
+
+---
+
+## Data Synchronization & CQRS Flow
+
+The system employs a **Command Query Responsibility Segregation (CQRS)** pattern with an event-driven architecture to keep data synchronized across microservices:
+
+### 1. Source of Truth Services
+Each core service acts as the definitive source of truth for its own domain:
+- **Show Service** owns: Events, Shows, Venues, and Auditoriums.
+- **Booking Service** owns: Seat statuses, Pricing, and Booking transactions.
+
+### 2. Publishing Events to Kafka
+Whenever a state change occurs in the source of truth services, they publish domain events to **Kafka**. Examples include:
+- `SHOW_CREATED`
+- `SHOW_UPDATED`
+- `SEAT_LAYOUT_CREATED`
+- `BOOKING_CONFIRMED`
+- `BOOKING_CANCELLED`
+
+### 3. Query Service Consumption (The Read Model)
+The **Query Service** acts as a subscriber to these events. It consumes them and builds its own optimized read-heavy database tables (e.g., PostgreSQL or MongoDB) that are specifically tailored for search functionality.
+- For example, it might build a denormalized view like `search_show_view`:
+  - `show_id`, `movie_title`, `city`, `venue_name`, `start_time`, `available_seats`, `price_range`
+- This database is fully owned by the Query Service and is **eventually consistent** with the primary databases.
+
+### 4. Caching Strategy with Redis
+To further reduce latency and database load, the Query Service implements a caching layer using **Redis**:
+- It caches hot queries such as "Movies in Bangalore Today" or "Available seats for Show 123".
+- Cache invalidation relies on either **TTL (Time-To-Live)** expirations or **Event-based invalidation** triggered directly by incoming Kafka events.
