@@ -51,7 +51,6 @@ erDiagram
 
     SHOW_SEAT {
         string id PK
-        string auditorium_id FK
         string show_id FK
         float price
         string state

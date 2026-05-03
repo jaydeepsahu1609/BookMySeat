@@ -26,9 +26,6 @@ public class ShowSeat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = EntityConstants.COL_AUDITORIUM_ID, nullable = false)
-    private Integer auditoriumId;
-
     @Column(name = EntityConstants.COL_SHOW_ID, nullable = false)
     private Integer showId;
 

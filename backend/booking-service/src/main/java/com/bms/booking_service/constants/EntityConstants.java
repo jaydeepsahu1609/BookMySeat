@@ -13,16 +13,15 @@ public final class EntityConstants {
     // ==========================================
     // Table Names
     // ==========================================
-    public static final String TABLE_SHOW_SEAT = "\"show_seat\"";
-    public static final String TABLE_BOOKING = "\"booking\"";
-    public static final String TABLE_SHOW_BOOKING = "\"show_booking\"";
+    public static final String TABLE_SHOW_SEAT = "show_seat";
+    public static final String TABLE_BOOKING = "booking";
+    public static final String TABLE_SHOW_BOOKING = "show_booking";
 
     // ==========================================
     // Column Names
     // ==========================================
     
     // ShowSeat Columns
-    public static final String COL_AUDITORIUM_ID = "auditorium_id";
     public static final String COL_SHOW_ID = "show_id";
     public static final String COL_LOCKED_BY = "locked_by";
     public static final String COL_LOCKED_AT = "locked_at";

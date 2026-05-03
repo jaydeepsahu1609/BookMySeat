@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @Builder
 public class ShowSeatDto {
     private Integer id;
-    private Integer auditoriumId;
     private Integer showId;
     private BigDecimal price;
     private String state;
