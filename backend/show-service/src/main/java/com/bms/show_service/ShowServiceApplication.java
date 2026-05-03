@@ -1,13 +1,13 @@
-package com.bms.management_service;
+package com.bms.show_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ManagementServiceApplication {
+public class ShowServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ManagementServiceApplication.class, args);
+		SpringApplication.run(ShowServiceApplication.class, args);
 	}
 
 }
