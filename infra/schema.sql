@@ -136,3 +136,13 @@ CREATE TABLE IF NOT EXISTS "transaction" (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+------------------------------
+-- DATABASE :: query_db
+-- OWNER :: query-service
+------------------------------
+
+SELECT 'CREATE DATABASE "query_db"'
+    WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'query_db')\gexec
+
+\c "query_db"
