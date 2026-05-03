@@ -1,3 +1,5 @@
+<img src="docs/img/logo.png" alt="BookMySeat Logo" height="100%" width="100%" />
+
 # 🎟️ BookMySeat - Scalable Ticket Booking Platform
 
 A full-stack distributed system inspired by modern ticket booking platforms like BookMyShow.  
