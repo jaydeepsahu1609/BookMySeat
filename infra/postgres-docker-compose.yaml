@@ -7,15 +7,13 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: bmsuser
-      POSTGRES_PASSWORD: bXlwYXNzd29yZA
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: bmsdb
     volumes:
       # Persist database data
       - bms-pgdata:/var/lib/postgresql/data
-      # Mount custom configuration (optional)
-      # Ensure these files/folders exist in the same directory as this docker-compose file
-      # - ./postgresql.conf:/etc/postgresql/postgresql.conf
-      # - ./init-scripts:/docker-entrypoint-initdb.d
+      # Mount schema.sql to initialize the database
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
     ports:
       - "5432:5432"
     healthcheck:
@@ -26,5 +24,3 @@ services:
 
 volumes:
   bms-pgdata:
-
-# FIXME : secrets/passwords must not be checked-in to version control

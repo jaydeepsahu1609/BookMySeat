@@ -6,7 +6,7 @@ services:
   redis-node-1:
     image: redis:7.2-alpine
     container_name: redis-node-1
-    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes", "--requirepass", "cmVkaXNwYXNzd29yZA", "--masterauth", "cmVkaXNwYXNzd29yZA"]
+    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD}", "--masterauth", "${REDIS_PASSWORD}"]
     ports:
       - "6371:6379"
       - "16371:16379"
@@ -15,7 +15,7 @@ services:
     networks:
       - redis-cluster-net
     healthcheck:
-      test: ["CMD", "redis-cli", "-a", "cmVkaXNwYXNzd29yZA", "ping"]
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -27,7 +27,7 @@ services:
   redis-node-2:
     image: redis:7.2-alpine
     container_name: redis-node-2
-    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes", "--requirepass", "cmVkaXNwYXNzd29yZA", "--masterauth", "cmVkaXNwYXNzd29yZA"]
+    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD}", "--masterauth", "${REDIS_PASSWORD}"]
     ports:
       - "6372:6379"
       - "16372:16379"
@@ -36,7 +36,7 @@ services:
     networks:
       - redis-cluster-net
     healthcheck:
-      test: ["CMD", "redis-cli", "-a", "cmVkaXNwYXNzd29yZA", "ping"]
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -48,7 +48,7 @@ services:
   redis-node-3:
     image: redis:7.2-alpine
     container_name: redis-node-3
-    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes", "--requirepass", "cmVkaXNwYXNzd29yZA", "--masterauth", "cmVkaXNwYXNzd29yZA"]
+    command: ["redis-server", "--cluster-enabled", "yes", "--cluster-config-file", "nodes.conf", "--cluster-node-timeout", "5000", "--appendonly", "yes", "--requirepass", "${REDIS_PASSWORD}", "--masterauth", "${REDIS_PASSWORD}"]
     ports:
       - "6373:6379"
       - "16373:16379"
@@ -57,7 +57,7 @@ services:
     networks:
       - redis-cluster-net
     healthcheck:
-      test: ["CMD", "redis-cli", "-a", "cmVkaXNwYXNzd29yZA", "ping"]
+      test: ["CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping"]
       interval: 10s
       timeout: 5s
       retries: 3
@@ -78,7 +78,7 @@ services:
       - redis-node-3
     entrypoint: >
       sh -c "sleep 5 && 
-      redis-cli -a cmVkaXNwYXNzd29yZA --cluster create 
+      redis-cli -a ${REDIS_PASSWORD} --cluster create 
       redis-node-1:6379 redis-node-2:6379 redis-node-3:6379 
       --cluster-replicas 0 --cluster-yes"
 
@@ -90,5 +90,3 @@ volumes:
   redis-node-1-data:
   redis-node-2-data:
   redis-node-3-data:
-
-# FIXME : secrets/passwords must not be checked-in to version control
