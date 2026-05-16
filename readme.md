@@ -30,6 +30,12 @@ It also strengthens:
 
 <img src="docs/3-architecture-diagram.png" alt="High-Level Architecture Diagram" height="110%" width="110%" />
 
+#### CQRS - Command Query Responsibility Segregation Design Pattern
+<img src="docs/img/cqrs.png" alt="CQRS - Command Query Responsibility Segregation Design Pattern" height="110%" width="110%" />
+
+#### Event-Driven Architecture
+<img src="docs/img/event-driven-architecture.png" alt="Event-Driven Architecture" height="110%" width="110%" />
+
 ---
 
 ## Tech Stack
